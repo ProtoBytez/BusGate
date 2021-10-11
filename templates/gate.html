@@ -40,7 +40,8 @@
 
     <div class='wrapper'>
         <div class = 'forms' style="justify-content: center;
-        align-items: center;"><form action="res">  
+        align-items: center;" ><form action="res" method='post'>  
+            {% csrf_token %}
             From :<input type="text" name="desin1" list='cityslist' placeholder="Search City..." ><br>
             To   :<input type="text" name="desin2" list='cityslist' placeholder="Search City..." >
              <datalist id='cityslist'>
