@@ -1,0 +1,17 @@
+{% extends 'gate.html '%}
+
+{% block content %}
+        {% for gt,ct1,ct2 in all %}     
+        <div class= 'cont'>
+                <h1 style="font-size:3vw;">{{gt.gname}}</h1>   
+                <h1 style="font-size:2vw;">{{ct1.loc}}</h1> 
+                <h1 style="font-size:2vw;">{{ct1.city}}Phone : {{ct1.ph}}</h1>
+        </div>
+        <div class= 'cont'>
+                <h1 style="font-size:3vw;">{{gt.gname}}</h1>   
+                <h1 style="font-size:2vw;">{{ct2.loc}}</h1> 
+                <h1 style="font-size:2vw;">{{ct2.city}}Phone : {{ct2.ph}}</h1>
+         </div>   
+        {% endfor %}
+
+{% endblock %}
