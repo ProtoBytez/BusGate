@@ -13,8 +13,8 @@ def gate(request):
 
 def res(request): 
 
-    d1 = str(request.GET['desin1'] )
-    d2 = str(request.GET['desin2'] )
+    d1 = str(request.POST['desin1'] )
+    d2 = str(request.POST['desin2'] )
 
     allgate = BusGateinfo.objects.all()
     cid1 = Citys.objects.get(name = d1).id
