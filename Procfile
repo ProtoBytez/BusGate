@@ -1,1 +1,1 @@
-web: gunicorn BusGate.wsgi --log-file--
+web: gunicorn BusGate.wsgi
