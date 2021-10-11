@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BusGateFinder</title>
+    <style>
+        .wrapper > div {
+            background-color:#ddd;
+            padding-left: 10%;
+            padding-right: 10%;
+            border-radius: 10px;
+        }
+        .wrapper > div:nth-child(odd){
+            background-color: aquamarine;
+        }
+        .wrapper {
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-auto-rows: minmax(100px, auto);
+            grid-gap : 1em;
+            padding: 10px;
+            
+        }
+        .forms {
+            grid-column: 1/ -1;
+            text-align: center;
+            padding-top: 3%;
+        }
+        .cont {
+            text-align: center;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class='wrapper'>
+        <div class = 'forms' style="justify-content: center;
+        align-items: center;" ><form action="res" method='post'>  
+            {% csrf_token %}
+            From :<input type="text" name="desin1" list='cityslist' placeholder="Search City..." ><br>
+            To   :<input type="text" name="desin2" list='cityslist' placeholder="Search City..." >
+             <datalist id='cityslist'>
+                           {% for citys in citylist %}
+                             <option value="{{citys.name}}"></option>
+                           {% endfor %}
+             </datalist>
+             <input type="submit" name="Search" >
+                             </form>
+             <h1 style="font-size:4vw;">{{desin1}} To {{desin2}}</h1>
+        </div>  
+            
+             {% block content %}
+
+             {% endblock %}
+        
+    </div>
+</body>
+</html>     
+
+
