@@ -8,7 +8,7 @@ from django.db.models import Q
 
 def gate(request): 
    citylists =list(Citys.objects.all())
-   return render(request , 'gate.html' , { 'citylist': citylists} )
+   return render(request , 'index.html' , { 'citylist': citylists} )
 
 
 def res(request): 
