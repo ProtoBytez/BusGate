@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,15 +32,16 @@
             padding-top: 5%;
             padding-bottom: 5%;
         }
+        
         .css-input {
              padding: 7px;
-             font-size: 22px;
+             font-size: 1vw;
              border-width: 3px;
              border-color: #CCCCCC;
              background-color: #FFFFFF;
-                color: #000000;
-            border-style: solid;
-            border-radius: 16px;
+             color: #000000;
+             border-style: solid;
+             border-radius: 16px;
              box-shadow: 0px 0px 5px rgba(48,106,195,.48);
              text-shadow: 0px 0px 5px rgba(66,66,66,.75);
         }
@@ -58,7 +58,7 @@
         	cursor:pointer;
         	color:#ffffff;
         	font-family:Arial;
-	        font-size:19px;
+	        font-size:1vw;
         	padding:12px 37px;
 	        text-decoration:none;
             text-shadow:0px 1px 0px #283966;
@@ -72,42 +72,33 @@
             	top:1px;
         }
 
-        
     </style>
 </head>
 <body>
 
-   
     <div class='wrapper'>
-        <div class = 'forms' style="justify-content: center;
-        align-items: center;" ><form action="res" method='post'>  
+        <div class ='forms' style="justify-content: center;
+        align-items: center;" style="max-width:600px"><form action="res" method='post'>  
             {% csrf_token %}
-            <label for="desin1" style="font-size: 2vw;">From :</label>
-            <input type="text" name="desin1" list='cityslist' placeholder="Search City..." class='css-input'><br>
-            <label for="desin2" style="font-size: 2vw;">To :</label>
-            <input type="text" name="desin2" list='cityslist' placeholder="Search City..." class='css-input'>
+            <div><label for="desin1" style="font-size: 2vw;">From :</label><br>
+                <div><input type="text" name="desin1" list='cityslist' placeholder="Search City..." class='css-input'><br></div>
+            </div>
+            <div><label for="desin2" style="font-size: 2vw;">To :</label><br>
+                <div><input type="text" name="desin2" list='cityslist' placeholder="Search City..." class='css-input'><br></div>
+                </div>
              <datalist id='cityslist'>
                            {% for citys in citylist %}
                              <option value="{{citys.name}}"></option>
                            {% endfor %}
              </datalist>
-             <input type="submit" name="Search" class='myButton' >
+             <div><input type="submit" name="Search" class='myButton' ></div>
                              </form>
              <h1 style="font-size:4vw;">{{desin1}} To {{desin2}}</h1>
         </div>  
             
-        {% for gt,ct1,ct2 in all %}     
-        <div class= 'cont'>
-                <h1 style="font-size:3vw;">{{gt.gname}}</h1>   
-                <h1 style="font-size:2vw;">{{ct1.loc}}</h1> 
-                <h1 style="font-size:2vw;">{{ct1.city}}Phone : {{ct1.ph}}</h1>
-        </div>
-        <div class= 'cont'>
-                <h1 style="font-size:3vw;">{{gt.gname}}</h1>   
-                <h1 style="font-size:2vw;">{{ct2.loc}}</h1> 
-                <h1 style="font-size:2vw;">{{ct2.city}}Phone : {{ct2.ph}}</h1>
-         </div>   
-        {% endfor %}
+             {% block content %}
+
+             {% endblock %}
         
     </div>
 </body>
