@@ -82,12 +82,12 @@
         <div class ='forms'>
             <form action="res" method='post'>  
             {% csrf_token %} 
-            <div><label for="desin1" style="font-size: 2em; font-style: italic ;">From:</label>
+            <label for="desin1" style="font-size: 2em; font-style: italic ;">From:</label>
                 <input type="text" name="desin1" list='cityslist' placeholder="Search City..." class='css-input'  style="padding-left: 1em;"><br>
-            </div>
-            <div><label for="desin2" style="font-size: 2em; font-style: italic; padding-right: 1em;">To:</label>
+            
+            <label for="desin2" style="font-size: 2em; font-style: italic; padding-right: 1em;">To:</label>
                 <input type="text" name="desin2" list='cityslist' placeholder="Search City..." class='css-input' style="padding-left: 1em;"><br> 
-            </div>
+            
              <datalist id='cityslist'>
                            {% for citys in citylist %}
                              <option value="{{citys.name}}"></option>
