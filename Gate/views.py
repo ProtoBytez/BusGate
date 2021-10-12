@@ -7,7 +7,7 @@ from django.db.models import Q
 
 
 def gate(request): 
-   citylists =Citys.objects.filter().values_list('name')
+   citylists =list(Citys.objects.all())
    return render(request , 'gate.html' , { 'citylist': citylists} )
 
 
