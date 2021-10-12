@@ -41,4 +41,4 @@ def res(request):
     #locs = locations.objects.get(gate = all_gate.id , city = 'Yangon')
     #need to get phone number
 
-    return render(request ,'res.html', {'all' : all ,'all_gate' : all_gate , 'desin1' :d1 , 'desin2': d2 , 'ct1' :ct1 , 'ct2' :ct2 , 'citylist': citylists })   
+    return render(request ,'index.html', {'all' : all ,'all_gate' : all_gate , 'desin1' :d1 , 'desin2': d2 , 'ct1' :ct1 , 'ct2' :ct2 , 'citylist': citylists })   
