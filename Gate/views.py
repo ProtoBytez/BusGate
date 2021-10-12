@@ -12,7 +12,7 @@ def gate(request):
 
 
 def res(request): 
-
+   
     d1 = str(request.POST["desin1"])
     d2 = str(request.POST["desin2"])
 
@@ -31,7 +31,7 @@ def res(request):
        #ct1 = locations.objects.filter(gate = ids.id , city = d2)
     for ids in all_gate:
        ct2 = ct2+ list(locations.objects.filter(gate = ids.id , city = d2))
-     
+    citylists =list(Citys.objects.all())
     all = zip(all_gate,ct1,ct2)
     
     #citys = [cid1 , cid2]
@@ -41,4 +41,4 @@ def res(request):
     #locs = locations.objects.get(gate = all_gate.id , city = 'Yangon')
     #need to get phone number
 
-    return render(request ,'index.html', {'all' : all ,'all_gate' : all_gate , 'desin1' :d1 , 'desin2': d2 , 'ct1' :ct1 , 'ct2' :ct2})   
+    return render(request ,'res.html', {'all' : all ,'all_gate' : all_gate , 'desin1' :d1 , 'desin2': d2 , 'ct1' :ct1 , 'ct2' :ct2 , 'citylist': citylists })   
