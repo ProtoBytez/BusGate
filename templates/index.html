@@ -26,6 +26,8 @@
             grid-column: 1/ -1;
             text-align: center;
             padding-top: 3%;
+            display: grid;
+            
         }
         .cont {
             text-align: center;
@@ -77,25 +79,24 @@
 <body>
 
     <div class='wrapper'>
-        <div class ='forms' style="justify-content: center;
-        align-items: center;" style="max-width:600px"><form action="res" method='post'>  
-            {% csrf_token %}
-            <div><label for="desin1" style="font-size: 2em;">From :</label><br>
-                <div><input type="text" name="desin1" list='cityslist' placeholder="Search City..." class='css-input'><br></div>
+        <div class ='forms'>
+            <form action="res" method='post'>  
+            {% csrf_token %} 
+            <div><label for="desin1" style="font-size: 2em; font-style: italic ;">From:</label>
+                <input type="text" name="desin1" list='cityslist' placeholder="Search City..." class='css-input'  style="padding-left: 1em;"><br>
             </div>
-            <div><label for="desin2" style="font-size: 2em;">To :</label><br>
-                <div><input type="text" name="desin2" list='cityslist' placeholder="Search City..." class='css-input'><br></div>
-                </div>
+            <div><label for="desin2" style="font-size: 2em; font-style: italic; padding-right: 1em;">To:</label>
+                <input type="text" name="desin2" list='cityslist' placeholder="Search City..." class='css-input' style="padding-left: 1em;"><br> 
+            </div>
              <datalist id='cityslist'>
                            {% for citys in citylist %}
                              <option value="{{citys.name}}"></option>
                            {% endfor %}
              </datalist>
-             <div><input type="submit" name="Search" class='myButton' ></div>
-                             </form>
-             <h1 style="font-size:4vw;">{{desin1}} To {{desin2}}</h1>
+             <div style="padding-bottom: 1em; padding-top: 1em;"><input type="submit" name="Search" class='myButton' style="grid-area: d3;"></div>
+            </form>
         </div>  
-            
+            <div style=" grid-column: 1/-1; text-align: center;" > <h1 style="font-size:4vw;">{{desin1}} To {{desin2}}</h1></div>
         {% for gt,ct1,ct2 in all %}     
         <div class= 'cont'>
                 <h1 style="font-size:3vw;">{{gt.gname}}</h1>   
